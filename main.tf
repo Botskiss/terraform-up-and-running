@@ -22,7 +22,7 @@ provider "aws" {
 #}
 
 resource "aws_launch_configuration" "example" {
-  image_id        = "am-0fb653ca2d3203ac1"
+  image_id        = "ami-0fb653ca2d3203ac1"
   instance_type   = "t2.micro"
   security_groups = [aws_security_group.instance.id]
 
@@ -153,7 +153,7 @@ resource "aws_lb_listener_rule" "asg" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.asg
+    target_group_arn = aws_lb_target_group.asg.arn
   }
 }
 
